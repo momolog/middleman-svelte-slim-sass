@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Middleman ❤️  Svelte"
+
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+
+    meta http-equiv="content-type" content="text/html; charset=utf-8"
+    meta name="keywords"           content="Middleman, Svelte, Sass, Slim"
+    meta name="description"        content="Use svelte in middleman sites without the hassle."
+    meta name="author"             content="Alexander Presber"
+
+    link   type="text/css"       href="/assets/stylesheets/app.css" media="screen" rel="stylesheet" 
+    script type="text/javascript" src="/assets/javascripts/app.js"
+
+  body
+    #page
+      == yield
+    #footer
+      markdown:
+        "No Rights Reserved", free for personal and commercial use, 2022 [Alexander Presber](https://github.com/momolog)

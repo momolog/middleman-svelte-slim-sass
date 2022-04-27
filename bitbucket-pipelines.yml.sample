@@ -1,0 +1,28 @@
+image: ruby:3.1.1
+clone:
+  depth: 1
+pipelines:
+  branches:
+    master: 
+      - step:
+          name: Install node, bundle and run
+          script:
+            - apt-get update
+            - apt-get install -y nodejs ncftp npm
+            - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+            - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+            - apt-get update
+            - apt-get install -y yarn
+            - yarn
+            - bundle config set --local path 'vendor/bundle'
+            - bundle install
+            - bundle exec middleman build
+            - ncftpput -R -u $FTP_USER -p $FTP_PASSWORD $FTP_URL / build/*
+          caches:
+            - node
+            - bundler
+            - middleman
+definitions:
+  caches:
+    bundler:    vendor/bundle
+    middleman:  build
