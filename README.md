@@ -11,6 +11,7 @@ You need [asdf](https://asdf-vm.com), [yarn](https://yarnpkg.com) and [degit](ht
 mkdir <name-of-your-project>
 cd <name-of-your-project>
 degit momolog/middleman-svelte-slim-sass
+bundle
 yarn
 middleman
 ```
