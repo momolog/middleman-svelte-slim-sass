@@ -15,3 +15,4 @@ bundle
 yarn
 middleman
 ```
+Surf your site at http://localhost:4567
